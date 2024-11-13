@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +17,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "my_item")
+@Table(name = "item")
 @Getter
 @Setter
 @ToString
@@ -38,6 +39,8 @@ public class Item {
 	@Column(nullable = false, name = "number")
 	private int stockNumber;		// 재고 수량
 	
+	@Lob
+	@Column(nullable = false)
 	private String itemDetail;		// 상품 상세 설명
 	
 	private LocalDateTime regTime;  // 등록 시간
